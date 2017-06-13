@@ -1,0 +1,186 @@
+//
+//  PrefixHeader.pch
+//  家长界
+//
+//  Created by mac on 16/11/4.
+//  Copyright © 2016年 haha😄. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "DataBase.h"
+#import "Define.h"
+
+#import "NSObject+MJExtension.h"
+#import "MJExtension.h"
+#import "AFNetworking.h"
+
+
+/**
+ * 企聘通首页
+ */
+#import "QPTViewController.h"
+#import "QPTHomeCollectionViewCell.h"
+#import "HotZWTableViewCell.h"
+#import "CCPScrollView.h"
+
+/**有才有貌*/
+#import "YCYMViewController.h"
+#import "YCPersonDeViewController.h"
+#import "YCComDeViewController.h"
+#import "YCJobDeViewController.h"
+#import "YCYMDeHeadView.h"
+#import "YCYMCollectionViewCell.h"
+#import "GXZWCollectionViewCell.h"
+#import "MainFirstTableViewCell.h"
+#import "MainSecondTableViewCell.h"
+#import "YCJobHomeTableViewCell.h"
+#import "YCJobTableViewCell.h"
+#import "YCJobFirstTableViewCell.h"
+#import "YCListTableViewCell.h"
+
+//相册
+#import "PhotoViewCell.h"
+#import "PhotoViewLayout.h"
+
+/*校园365*/
+#import "Campus365ViewController.h"
+#import "CampusScrollView.h"
+#import "WorkGuideViewController.h"
+#import "EmployViewController.h"
+#import "StudentJobViewController.h"
+#import "PracticeViewController.h"
+#import "Campus365TableViewCell.h"
+#import "WorkGuideTableViewCell.h"
+#import "EmployTableViewCell.h"
+#import "ComOnlineViewController.h"
+#import "ComOnlineCollectionViewCell.h"
+#import "YCYMViewController.h"
+#import "CMDSTableViewCell.h"
+#import "QZSPViewController.h"
+#import "JZDRViewController.h"
+#import "JZDRTableViewCell.h"
+#import "HWLYViewController.h"
+#import "HWSearchBar.h"
+#import "EmployDetailViewController.h"
+#import "EmployDetailView.h"
+#import "employFirstTableViewCell.h"
+#import "employSecondTableViewCell.h"
+#import "employThreeTableViewCell.h"
+
+
+/**有商有客*/
+#import "YSYKViewController.h"
+#import "YSYKDetailViewController.h"
+#import "YSYKTableViewCell.h"
+#import "FooterShowView.h"
+#import "FooterTableViewCell.h"
+#import "YSYKShowView.h"
+#import "YSYKListView.h"
+#import "YSYKDetailView.h"
+#import "MSTDViewController.h"
+#import "XXYLViewController.h"
+
+/**易通学院*/
+#import "YTXYViewController.h"
+#import "YTDetialViewController.h"
+#import "YTDetailHeadView.h"
+#import "NewsViewController.h"
+#import "VideoViewController.h"
+#import "RecordViewController.h"
+#import "JobViewController.h"
+#import "SportsViewController.h"
+#import "RelaxViewController.h"
+
+
+/**
+ *  消息
+ */
+#import "MessageViewController.h"
+
+#import "MessageTableViewCell.h"
+
+
+/**
+ *  发现
+ */
+#import "DiscoverViewController.h"
+
+#import "HR HomeViewController.h"
+#import "HRTableViewCell.h"
+#import "SendLifeController.h"
+#import "CommentViewController.h"
+#import "MomentsViewController.h"
+
+/*抢通币*/
+#import "RobCoinViewController.h"
+#import "CoinTableViewCell.h"
+#import "CouponTableViewCell.h"
+
+/*创投天下*/
+#import "VentureWorldViewController.h"
+#import "VentureTableViewCell.h"
+#import "GoodItemsViewController.h"
+#import "GoodItemsTableViewCell.h"
+#import "GoodDetailViewController.h"
+#import "GoodDetialHeadView.h"
+#import "GoodDeFirstTableViewCell.h"
+#import "GoodDeSecondTableViewCell.h"
+#import "GoodDeThirdTableViewCell.h"
+#import "PartnerViewController.h"
+#import "PartnerTableViewCell.h"
+#import "PartDetailViewController.h"
+#import "PartDeHeadView.h"
+#import "InstitutionViewController.h"
+#import "InstiDetailViewController.h"
+#import "InvestorViewController.h"
+#import "InstiPersonTableViewCell.h"
+#import "InstiCaseTableViewCell.h"
+#import "InstituHeadView.h"
+#import "InstiListView.h"
+#import "InvestorHeadView.h"
+#import "InvestorSecondTableViewCell.h"
+#import "InvestorThirdTableViewCell.h"
+#import "InvestorTableViewCell.h"
+
+
+/**
+ *  个人
+ */
+#import "OwnerViewController.h"
+
+
+/**
+ *  工具
+ */
+#import "Gallop.h"
+#import "LWImageBrowser.h"
+#import "SGSegmentedControl.h"
+#import "UIImageView+WebCache.h"
+#import "WYAutoCarusel.h"
+#import "DCPicScrollView.h"
+#import "Masonry.h"
+#import "SiftView.h"
+#import "PlaceholderTextView.h"
+#import "UIImage+Extension.h"
+#import "NSString+Extension.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
+
+/**
+ *  其他
+ */
+
+#import "UIBarButtonItem+Extension.h"
+#import "UIView+Extension.h"
+#import "MainNavigationController.h"
+#import "MainTabBarController.h"
+#import "NewfeatureViewController.h"
+#import "UIWindow+MainWindow.h"
+#import "SCNavTabBarController.h"
+#endif /* PrefixHeader_pch */

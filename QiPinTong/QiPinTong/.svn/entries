@@ -1,0 +1,92 @@
+10
+
+dir
+4
+svn://zb@localhost/QPT_SVN/QPTCode/QiPinTong/QiPinTong
+svn://zb@localhost
+
+
+
+2017-01-04T01:59:33.570257Z
+4
+zb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+841dd1ab-d05b-4367-9fd7-ec1e51c26baa
+
+Base.lproj
+dir
+
+main
+dir
+
+message
+dir
+
+Info.plist
+file
+
+
+
+
+2017-01-04T02:42:38.000000Z
+eef4e425440d15b76479dad388c7a327
+2017-01-03T13:50:41.218026Z
+1
+zb
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+985
+
+home
+dir
+
+newFeature(新特性)
+dir
+
+define
+dir
+
+icon_image
+dir
+
+owner
+dir
+
+Assets.xcassets
+dir
+
+discover
+dir
+

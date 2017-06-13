@@ -1,0 +1,63 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - AMap2DMap (4.6.0):
+    - AMapFoundation (~> 1.3)
+  - AMapFoundation (1.4.0)
+  - AMapLocation (2.3.1):
+    - AMapFoundation (~> 1.3)
+  - AMapSearch (5.0.0):
+    - AMapFoundation (~> 1.2)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - MBProgressHUD (1.0.0)
+  - MJExtension (3.0.13)
+  - MJRefresh (3.1.12)
+  - RongCloudIM/IMKit (2.8.11):
+    - RongCloudIM/IMLib
+  - RongCloudIM/IMLib (2.8.11)
+  - WechatOpenSDK (1.7.7)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - AMap2DMap
+  - AMapLocation
+  - AMapSearch
+  - FMDB
+  - MBProgressHUD (~> 1.0.0)
+  - MJExtension
+  - MJRefresh
+  - RongCloudIM/IMKit (~> 2.8.8)
+  - RongCloudIM/IMLib (~> 2.8.8)
+  - WechatOpenSDK
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AMap2DMap: 003fa70526983a1469ae6fc3323a6ee8b5ccf53c
+  AMapFoundation: 458974f46a39df8407fd818ab83d2630d494c726
+  AMapLocation: 6016f0e09c127461c9c8e36945f34c0f037ad962
+  AMapSearch: cf7fd100d533995822d92c22586abfaf7cdf6eef
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  RongCloudIM: b2b5aead4dca37ad8c2c06cea57d0a7321362cd0
+  WechatOpenSDK: cbd332148eb792d444ed4eec94f421d98f2046ee
+
+PODFILE CHECKSUM: f2ff978bdab29cee81fb2447ca7af3c4ce79650b
+
+COCOAPODS: 1.2.0

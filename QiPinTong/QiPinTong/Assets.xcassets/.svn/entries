@@ -1,0 +1,92 @@
+10
+
+dir
+4
+svn://zb@localhost/QPT_SVN/QPTCode/QiPinTong/QiPinTong/Assets.xcassets
+svn://zb@localhost
+
+
+
+2017-01-03T13:50:41.218026Z
+1
+zb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+841dd1ab-d05b-4367-9fd7-ec1e51c26baa
+
+timeline_icon_like.imageset
+dir
+
+timeline_icon_unlike.imageset
+dir
+
+qpt_homeIcon
+dir
+
+Contents.json
+file
+
+
+
+
+2017-01-04T02:42:36.000000Z
+31cc68f34934a99c0b0c1bebde56309c
+2017-01-03T13:50:41.218026Z
+1
+zb
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+62
+
+LaunchImage.launchimage
+dir
+
+navigation_imageicon
+dir
+
+timeline_icon_retweet.imageset
+dir
+
+AppIcon.appiconset
+dir
+
+timeline_icon_add_friends.imageset
+dir
+
+timeline_icon_comment.imageset
+dir
+
+campus365_icon
+dir
+

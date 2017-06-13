@@ -1,0 +1,375 @@
+//
+//  PrefixHeader.pch
+//  家长界
+//
+//  Created by mac on 16/11/4.
+//  Copyright © 2016年 haha😄. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "DataBase.h"
+#import "Define.h"
+
+#import "NSObject+MJExtension.h"
+
+/**
+ * 企聘通首页
+ */
+#import "QPTViewController.h"
+#import "QPTHomeCollectionViewCell.h"
+#import "HotZWTableViewCell.h"
+#import "CCPScrollView.h"
+#import "QPTBaseModel.h"
+#import "HomeAllViewController.h"
+/**有才有貌*/
+#import "YCYMViewController.h"
+#import "YCPersonDeViewController.h"
+#import "YCComDeViewController.h"
+#import "YCJobDeViewController.h"
+#import "YCYMDeHeadView.h"
+#import "YCYMCollectionViewCell.h"
+#import "GXZWCollectionViewCell.h"
+#import "MainFirstTableViewCell.h"
+#import "MainSecondTableViewCell.h"
+#import "YCJobHomeTableViewCell.h"
+#import "YCJobTableViewCell.h"
+#import "YCJobFirstTableViewCell.h"
+#import "PersonalLayout.h"
+#import "CompanyLayout.h"
+#import "DescCompanyView.h"
+#import "JobDetialLayout.h"
+
+//相册
+#import "PhotoViewCell.h"
+#import "PhotoViewLayout.h"
+
+/*校园365*/
+#import "Campus365ViewController.h"
+#import "WorkGuideViewController.h"
+#import "StudentJobViewController.h"
+#import "PracticeViewController.h"
+#import "WorkGuideTableViewCell.h"
+#import "WorkGuideLayout.h"
+#import "ComOnlineViewController.h"
+#import "ComOnlineCollectionViewCell.h"
+#import "YCYMViewController.h"
+#import "CMDSTableViewCell.h"
+#import "QZSPViewController.h"
+#import "JZDRViewController.h"
+#import "JZDRTableViewCell.h"
+#import "HWSearchBar.h"
+
+
+/**有商有客*/
+#import "YSYKViewController.h"
+#import "YSYKDetailViewController.h"
+#import "YSYKTableViewCell.h"
+#import "FooterShowView.h"
+#import "FooterTableViewCell.h"
+#import "YSYKListView.h"
+#import "MSTDViewController.h"
+#import "XXYLViewController.h"
+#import "YSYKLayout.h"
+
+/**易通学院*/
+#import "YTXYViewController.h"
+
+
+/**
+ *  消息
+ */
+#import "MessageViewController.h"
+#import "MessageTableViewCell.h"
+#import "MessageLayout.h"
+
+/**
+ *  发现
+ */
+#import "DiscoverViewController.h"
+#import "DiscoverTableViewCell.h"
+#import "CommentViewController.h"
+#import "MomentsViewController.h"
+#import "CellLayout.h"
+#import "TableViewCell.h"
+#import "LifeCircleViewController.h"
+#import "LifeCircleCollectionViewCell.h"
+#import "DiscoverHeaderView.h"
+#import "TalentGangViewController.h"
+#import "TalentGangTableViewCell.h"
+
+#import "NearbyViewController.h"
+#import "NearHighTableViewCell.h"
+#import "NearComTableViewCell.h"
+#import "NearJobViewController.h"
+#import "NearHighViewController.h"
+#import "NearComViewController.h"
+#import "NearPartnerViewController.h"
+#import "NearLifeViewController.h"
+#import "AwardCoinController.h"
+
+
+/*创投天下*/
+#import "VentureWorldViewController.h"
+#import "VentureTableViewCell.h"
+#import "VentureCellLayout.h"
+#import "GoodItemsViewController.h"
+#import "GoodItemsTableViewCell.h"
+#import "GoodDetailViewController.h"
+#import "GoodDetialHeadView.h"
+#import "GoodDeFirstTableViewCell.h"
+#import "GoodDeSecondTableViewCell.h"
+#import "PartnerViewController.h"
+#import "PartnerLayout.h"
+#import "PartnerTableViewCell.h"
+#import "PartDetailViewController.h"
+#import "PartDeHeadView.h"
+#import "InstitutionViewController.h"
+#import "InstiDetailViewController.h"
+#import "InvestorViewController.h"
+#import "InstiPersonTableViewCell.h"
+#import "InstiCaseTableViewCell.h"
+#import "InstituHeadView.h"
+#import "InvestorHeadView.h"
+#import "InvestorTableViewCell.h"
+#import "InvestmentLayout.h"
+
+#import "GoodProjectLayout.h"
+
+/**
+ *  后台管理
+ */
+#import "OwnerViewController.h"
+#import "RegisterViewController.h"
+#import "RetrievePwdViewController.h"
+#import "HeaderView.h"
+#import "OwnerMainTableViewCell.h"
+#import "RegisterTableViewCell.h"
+#import "RetrievePwdTableViewCell.h"
+#import "EditingController.h"
+#import "SetViewController.h"
+#import "PhoneBindViewController.h"
+#import "PhoneModifyViewController.h"
+#import "PasswordSetViewController.h"
+#import "PasswordModifyViewController.h"
+#import "PayPwdSetViewController.h"
+#import "PayPwdAgainViewController.h"
+#import "PayViewController.h"
+#import "PayCompleteViewController.h"
+
+#import "CoinDouViewController.h"
+#import "CoinDouProfitViewController.h"
+#import "CoinOpenViewController.h"
+#import "DouOutViewController.h"
+#import "DouIncomeViewController.h"
+#import "QR CodeViewController.h"
+#import "AddFriendsViewController.h"
+#import "AddUserViewController.h"
+#import "AddressBookViewController.h"
+#import "TalentsTableViewCell.h"
+#import "ResumeLibraryViewController.h"
+#import "YCYMFormViewController.h"
+#import "YCYMFormTableViewCell.h"
+#import "TalentFormViewController.h"
+#import "ShareRecordViewController.h"
+#import "PerOrComViewController.h"
+#import "IdentitySwitchViewController.h"
+
+#import "SuperManageViewController.h"
+#import "TodayAddViewController.h"
+#import "TAddDetailViewController.h"
+#import "TAddDetailTableViewCell.h"
+#import "FinanceViewController.h"
+#import "FinanceDetailViewController.h"
+#import "TeamManageViewController.h"
+#import "TeamListViewController.h"
+#import "TeamDetailViewController.h"
+#import "TeamListTableViewCell.h"
+#import "PostChangeViewController.h"
+#import "TodayRankViewController.h"
+#import "RankingViewController.h"
+
+#import "MyCoinViewController.h"
+#import "ProfitDeViewController.h"
+#import "ProfitDeTableViewCell.h"
+#import "SendCoinViewController.h"
+#import "WalletViewController.h"
+#import "WalletTableViewCell.h"
+#import "FeedbackViewController.h"
+
+
+/**
+ 个人
+ */
+#import "PerEditController.h"
+#import "EditFirstTableViewCell.h"
+#import "BasicDataViewController.h"
+#import "ExpectJobViewController.h"
+#import "ExpectJobTableViewCell.h"
+#import "ExpectAddViewController.h"
+#import "WorkExperViewController.h"
+#import "StudyExperViewController.h"
+#import "YesNoSelectTableViewCell.h"
+#import "ResumeScanViewController.h"
+#import "ResumeScanCellLayout.h"
+#import "ResumeScanTableViewCell.h"
+#import "PartnerDataViewController.h"
+#import "SexSelectTableViewCell.h"
+#import "AddTableViewCell.h"
+#import "EditResumeViewController.h"
+#import "PersonShowView.h"
+#import "PerShowViewController.h"
+#import "FunsViewController.h"
+#import "FunsTableViewCell.h"
+#import "VtPerSendViewController.h"
+#import "PersonalInformationDetial.h"
+
+/**
+ 企业
+ */
+#import "MyHelperViewController.h"
+#import "ResumeTableViewCell.h"
+#import "ComShowViewController.h"
+#import "InviteCellLayout.h"
+#import "InviteTableViewCell.h"
+#import "SendTableViewCell.h"
+#import "StoreEditViewController.h"
+#import "CashCouponViewController.h"
+#import "ClientLibraryViewController.h"
+#import "ClientDetialViewController.h"
+
+#import "ComEditViewController.h"
+#import "ComDataViewController.h"
+#import "InvestDataViewController.h"
+#import "ContactInfoViewController.h"
+#import "ContactWayViewController.h"
+#import "PhotoUploadViewController.h"
+#import "PhotoUploadTableViewCell.h"
+#import "VtComFormViewController.h"
+#import "VtSendViewController.h"
+#import "FundHistoryViewController.h"
+#import "VtProjectCellLayout.h"
+#import "VtProjectTableViewCell.h"
+#import "VtTCLYCellLayout.h"
+#import "VtTCLYTableViewCell.h"
+#import "InvestorBackCellLayout.h"
+#import "InvestorBackTableViewCell.h"
+#import "InvestCaseCellLayout.h"
+#import "InvestCaseTableViewCell.h"
+#import "PostManageViewController.h"
+#import "SendPostFormViewController.h"
+#import "VtPersonFormViewController.h"
+
+
+/**
+ 常量
+ */
+#import "QPTCommonAPIConstant.h"
+#import "QPTCommonConstant.h"
+
+
+/**
+ *  工具
+ */
+#import "Gallop.h"
+#import "LWAlertView.h"
+#import "LWImageBrowser.h"
+#import "LWAsyncDisplayView.h"
+#import "SGSegmentedControl.h"
+#import "UIImageView+WebCache.h"
+#import "SDCycleScrollView.h"
+#import "Masonry.h"
+#import "UILabel+Extension.h"
+#import "PlaceholderTextView.h"
+#import "UIImage+Extension.h"
+#import "NSString+Extension.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import "UILabel+LinesDistance.h"
+#import "UIDevice+FEPlatForm.h"
+#import "StringSizeManager.h"
+#import "WJDropdownMenu.h"
+#import "YBPopupMenu.h"
+#import "QPTRequestManager.h"
+#import "UIImageView+WebCache.h"
+#import "AddressSelectView.h"
+#import "SingleSelectView.h"
+
+#import "MapNaviViewController.h"
+#import "DateSelectView.h"
+#import "BDImagePicker.h"
+#import "QPTUserInfoManager.h"
+#import "QPTFileCacheManger.h"
+#import "NSFileManager+Paths.h"
+#import "CustomButton.h"
+#import "SKPopAnimationManage.h"
+#import "QPTUtils.h"
+
+//第三方库pod
+#import <MBProgressHUD.h>
+#import <AFNetworking.h>
+#import <MJRefresh.h>
+#import <MJExtension.h>
+#import <FMDB.h>
+#import "SDImageCache.h"
+/**
+ *  其他
+ */
+#import "QPTConst.h"
+#import "AwardView.h"
+#import "UIBarButtonItem+Extension.h"
+#import "UIView+Extension.h"
+#import "MainNavigationController.h"
+#import "MainTabBarController.h"
+#import "NewfeatureViewController.h"
+#import "UIWindow+MainWindow.h"
+#import "EditingLoginView.h"
+#import "EditingAlertController.h"
+#import "SelectBtnView.h"
+#import "MyScrollView.h"
+#import "JoinInView.h"
+#import "CityList.h"
+#import "BottomBtnView.h"
+#import "LQXSwitch.h"
+#import "MBProgressHUD+NHAddition.h"
+#import "QPTTextView.h"
+#import "SelectView.h"
+//    #import "EMClient+Call.h"
+
+
+
+//第三方登录
+//#import <ShareSDK/ShareSDK.h>
+//#import <ShareSDKUI/ShareSDK+SSUI.h>
+//#import <ShareSDKConnector/ShareSDKConnector.h>
+
+//腾讯SDK头文件
+//#import <TencentOpenAPI/TencentOAuth.h>
+//#import <TencentOpenAPI/QQApiInterface.h>
+
+//微信头文件
+#import "WXApi.h"
+
+//新浪微博
+//#import "WeiboSDK.h"
+
+//短信验证
+//#import <SMS_SDK/SMSSDK.h>
+
+//融云
+#import <RongIMKit/RongIMKit.h>
+#import <RongIMLib/RongIMLib.h>
+
+
+//高德地图
+#import <MAMapKit/MAMapKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
+#import <AMapFoundationKit/AMapFoundationKit.h>
+
+#endif /* PrefixHeader_pch */

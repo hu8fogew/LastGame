@@ -1,0 +1,500 @@
+//
+//  YSYKViewController.m
+//  家长界
+//
+//  Created by taylor on 2016/12/1.
+//  Copyright © 2016年 西部家联. All rights reserved.
+//
+
+#import "YSYKViewController.h"
+
+@interface YSYKViewController ()<UITableViewDelegate,UITableViewDataSource,WYAutoCaruselDelegate>
+
+/*tableView*/
+@property (strong,nonatomic) UITableView *tableView;
+
+/*tableView的headerView*/
+@property (strong,nonatomic) UIView *headerView;
+
+/*轮播数组*/
+@property(nonatomic,strong) NSMutableArray *arrLunBo;
+
+/*选择按钮数组*/
+@property (strong,nonatomic) NSMutableArray *seleBarArr;
+
+/*选择按钮视图*/
+@property (strong,nonatomic) UIView *seleBtnView;
+
+/*抢通币视图*/
+@property (nonatomic,strong) UIView *tbView;
+
+/*tableView的footerView*/
+@property (strong,nonatomic) UIView *footerView;
+
+@property (strong,nonatomic) UIView *footShowView;
+
+/**底部视图*/
+@property (strong,nonatomic) UIView *bottomView;
+
+
+@property (strong,nonatomic) UITableView *footerTable;
+
+
+@property (strong,nonatomic) UIButton *iconBtn;
+
+@end
+
+@implementation YSYKViewController
+
+id ycell = nil;
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self.view addSubview:self.tableView];
+    [self.headerView addSubview:self.seleBtnView];
+    [self.headerView addSubview:self.tbView];
+        
+    [self.view addSubview:self.bottomView];
+    
+    [self createAdsPageWithArr:self.arrLunBo];
+    [self createSelectBtnWith:self.seleBarArr];
+    
+}
+
+
+#pragma mark /******懒加载******/
+
+-(NSMutableArray *)arrLunBo{
+    if (!_arrLunBo) {
+        _arrLunBo = [DataBase addSelecteArray];
+    }
+    return _arrLunBo;
+}
+
+-(NSMutableArray *)seleBarArr{
+    if (!_seleBarArr) {
+        _seleBarArr = [DataBase addYSYKSelectBarArr];
+    }
+    return _seleBarArr;
+}
+
+/**------headerView------**/
+-(UIView *)headerView{
+    if (!_headerView) {
+        _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, lunBoheight)];
+        _headerView.backgroundColor = HWColor(241, 241, 241);
+        
+    }
+    return _headerView;
+}
+
+/**-------选择按钮视图-------**/
+-(UIView *)seleBtnView{
+    if (!_seleBtnView) {
+        _seleBtnView = [[UIView alloc]initWithFrame:CGRectMake(0, lunBoheight, SCREEN_WIDTH, SCREEN_WIDTH*0.35)];
+        
+    }
+    return _seleBtnView;
+}
+
+/**-----抢通币-----**/
+-(UIView *)tbView{
+    if (!_tbView) {
+        _tbView = [[UIView alloc]initWithFrame:CGRectMake(0, self.seleBtnView.y+self.seleBtnView.height+5, SCREEN_WIDTH, SCREEN_WIDTH*0.2+5)];
+        _tbView.backgroundColor = HWColor(241, 241, 241);
+        
+        UIView *vi = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*0.2)];
+        vi.backgroundColor = [UIColor whiteColor];
+        [_tbView addSubview:vi];
+        
+        UIImageView *tbImage = [UIImageView new];
+        tbImage.image = [UIImage imageNamed:@"tbImage"];
+        [vi addSubview:tbImage];
+        [tbImage mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(vi).with.offset(10);
+            make.centerY.equalTo(vi);
+            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH*0.15, SCREEN_WIDTH*0.15));
+        }];
+        
+        UILabel *titleLabel = [UILabel new];
+        titleLabel.font = [UIFont systemFontOfSize:18 weight:UIFontWeightBold];
+        titleLabel.text = @"抢通币";
+        titleLabel.textColor = [UIColor blackColor];
+        [vi addSubview:titleLabel];
+        [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(tbImage).with.offset(5);
+            make.left.equalTo(tbImage.mas_right).with.offset(45);
+        }];
+        
+        UILabel *subLabel = [UILabel new];
+        subLabel.font = [UIFont systemFontOfSize:16];
+        subLabel.text = @"免费兑换,可提现";
+        subLabel.textColor = HWColor(153, 153, 153);
+        [vi addSubview:subLabel];
+        [subLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(titleLabel);
+            make.top.equalTo(titleLabel.mas_bottom).with.offset(5);
+        }];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:@"抢取" forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont systemFontOfSize:15];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        button.layer.backgroundColor = [HWColor(222, 26, 45)CGColor];
+        button.layer.masksToBounds = YES;
+        button.layer.cornerRadius = 2;
+        [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+        [vi addSubview:button];
+        [button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(vi).with.offset(-10);
+            make.centerY.equalTo(vi);
+            make.size.mas_equalTo(CGSizeMake(60, 30));
+        }];
+        
+    }
+    return _tbView;
+}
+
+-(void)buttonClick{
+    HWLog(@"66666");
+}
+
+
+/**------footerView--------**/
+-(UIView *)footerView{
+    if (!_footerView) {
+        _footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50)];
+        _footerView.backgroundColor = HWColor(241, 241, 241);
+        
+        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 5, SCREEN_WIDTH, 44)];
+        view.backgroundColor = [UIColor whiteColor];
+        [_footerView addSubview:view];
+        UIImageView *imgView = [UIImageView new];
+        imgView.image = [UIImage imageNamed:@"v"];
+        [view addSubview:imgView];
+        [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(view);
+            make.left.equalTo(view).with.offset(8);
+            make.size.mas_offset(CGSizeMake(28, 30));
+        }];
+        
+        UILabel *label = [UILabel new];
+        label.text = @"商家免费入驻，客流多重共享";
+        label.textColor = HWColor(51, 51, 51);
+        label.font = [UIFont systemFontOfSize:18];
+        [view addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(imgView.mas_right).with.offset(10);
+            make.centerY.equalTo(imgView);
+        }];
+        
+        self.iconBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.iconBtn setBackgroundImage:[UIImage imageNamed:@"cacalogup"] forState:UIControlStateNormal];
+        [self.iconBtn setBackgroundImage:[UIImage imageNamed:@"cacalogdown"] forState:UIControlStateSelected];
+        [self.iconBtn addTarget:self action:@selector(clickArrowBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:self.iconBtn];
+        [self.iconBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(view).with.offset(-10);
+            make.centerY.equalTo(imgView);
+            make.size.mas_equalTo(CGSizeMake(25, 25));
+        }];
+        
+        [_footerView addSubview:self.footShowView];
+        
+        [_footerView addSubview:self.footerTable];
+    }
+    return _footerView;
+}
+
+#pragma mark /------箭头按钮切换------/
+-(void)clickArrowBtn:(UIButton *)sender{
+    
+     sender.selected = !sender.selected;
+    
+    if (!sender.selected) {
+        
+        [self.footShowView removeFromSuperview];
+        [self.footerView addSubview:self.footerTable];
+        [self.footerTable reloadData];
+        
+    }
+    else {
+        
+        [self.footerTable removeFromSuperview];
+        [self.footerView addSubview:self.footShowView];
+        self.footerView.height = self.footShowView.height;
+        
+    }
+}
+
+/**------footerview上的view------**/
+-(UIView *)footShowView{
+    if (!_footShowView) {
+        _footShowView = [[UIView alloc]initWithFrame:CGRectMake(0, 50, SCREEN_WIDTH, SCREEN_WIDTH*0.28)];
+        FooterShowView *vi = [FooterShowView new];
+        vi.firstTiLabel.text = @"易拉客";
+        vi.firstDeLabel.text = @"过客变粉丝";
+        vi.secondTiLabel.text = @"易推广";
+        vi.secondDeLabel.text = @"粉丝变顾客";
+        vi.thirdTiLabel.text = @"易招聘";
+        vi.thirdDeLabel.text = @"顾客变同事";
+    
+        [_footShowView addSubview:vi];
+    }
+    return _footShowView;
+}
+
+/**-----bottomView-----**/
+-(UIView *)bottomView{
+    if (!_bottomView) {
+        _bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-SCREEN_WIDTH*0.22, SCREEN_WIDTH, SCREEN_WIDTH*0.22)];
+        _bottomView.backgroundColor = [UIColor whiteColor];
+        UIButton *bottomBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        bottomBtn.backgroundColor = HWColor(35, 178, 228);
+        [bottomBtn setTitle:@"立即入驻" forState:UIControlStateNormal];
+        [bottomBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [bottomBtn addTarget:self action:@selector(clickBottomBtn) forControlEvents:UIControlEventTouchUpInside];
+        bottomBtn.layer.masksToBounds = YES;
+        bottomBtn.layer.cornerRadius = 4;
+        [_bottomView addSubview:bottomBtn];
+        [bottomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(_bottomView);
+            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH*0.8, SCREEN_WIDTH*0.11));
+        }];
+        
+    }
+    return _bottomView;
+}
+
+-(void)clickBottomBtn{
+    HWLog(@"hello,taylor!");
+}
+
+#pragma mark /------创建选择按钮------/
+-(void)createSelectBtnWith:(NSArray *)source{
+    int i = 0;
+    for (NSDictionary *dict in source) {
+        UIView *view = [UIView new];
+        if (i < 4) {
+            view.frame = CGRectMake((SCREEN_WIDTH/4)*i, 0, SCREEN_WIDTH/4, SCREEN_WIDTH*0.35);
+        }
+        view.backgroundColor = [UIColor whiteColor];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(SCREEN_WIDTH/16, SCREEN_WIDTH*0.3/4, SCREEN_WIDTH/8, SCREEN_WIDTH/8);
+        [button setBackgroundImage:[UIImage imageNamed:dict[@"slecteImg"]] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
+        button.layer.masksToBounds = YES;
+        button.layer.cornerRadius = button.width/2;
+        button.tag = i;
+        [view addSubview:button];
+        
+        UILabel *label = [UILabel new];
+        label.frame = CGRectMake(SCREEN_WIDTH/16-10, SCREEN_WIDTH*0.2, SCREEN_WIDTH/4, SCREEN_WIDTH/8);
+        label.font = [UIFont systemFontOfSize:16];
+        label.textColor = HWColor(51, 51, 51);
+        label.text = dict[@"labTitle"];
+        [view addSubview:label];
+        
+        [self.seleBtnView addSubview:view];
+        
+        i++;
+    }
+}
+
+/*-----按钮跳转--------*/
+-(void)clickBtn:(UIButton *)sender{
+    if (sender.tag == 0) {
+        HWLog(@"0");
+        MSTDViewController *vc = [MSTDViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (sender.tag == 1){
+        XXYLViewController *vc = [XXYLViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (sender.tag == 2){
+        
+    }
+    else{
+        
+    }
+        
+}
+
+#pragma mark /*********轮播图的实现*******/
+-(void)createAdsPageWithArr:(NSMutableArray *)source
+{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    for (NSDictionary *dic in source) {
+        [arr addObject:[dic objectForKey:@"slecteImg"]];
+    }
+    //封装的轮播view实现
+    WYAutoCarusel *aut = [[WYAutoCarusel alloc]init];
+    [aut createCaruselWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, lunBoheight) WithSuperView:self.headerView WithImageUrlArr:arr WithPlaceholderImageName:@"1" WithInterval:2];
+    
+    [aut createPageControlWithFrame:CGRectMake(SCREEN_WIDTH-60, lunBoheight-30, 30, 20) WithSuperView:self.headerView WithPageNum:arr.count WithCurrentColor:HWColor(248, 114, 1) WithTintColor:[UIColor whiteColor]];
+    
+    aut.delegate = self;
+}
+
+/*轮播图跳转代理*/
+-(void)pushViewController:(NSInteger)tag
+{
+    
+    HWLog(@"laniahao ");
+    
+}
+
+#pragma mark /++++++tableView及方法实现+++++++/
+-(UITableView *)tableView{
+    
+    if (!_tableView) {
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-SCREEN_WIDTH*0.22)];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
+        _tableView.tableHeaderView = self.headerView;
+        _tableView.tableHeaderView.height = self.tbView.y+self.tbView.height;
+        
+       _tableView.tableFooterView = self.footerView;
+       _tableView.tableFooterView.height =self.footerTable.y+self.footerTable.height;
+    
+    }
+    
+    return _tableView;
+}
+
+
+/*-------footerView上的tableview------*/
+-(UITableView *)footerTable{
+    if (!_footerTable) {
+        _footerTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 50, SCREEN_WIDTH, SCREEN_WIDTH*0.24*3)];
+        _footerTable.delegate = self;
+        _footerTable.dataSource = self;
+        
+        _footerTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _footerTable.allowsSelection = NO;
+        
+    }
+    return _footerTable;
+    
+}
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+    if ([tableView isEqual:self.tableView]) {
+
+        return 6;
+    }
+    
+    return 3;
+
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    if ([tableView isEqual:self.tableView]) {
+       
+            
+            return SCREEN_WIDTH*0.46;
+        }
+    
+    else{
+        return SCREEN_WIDTH*0.24;
+ 
+    }
+    
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *identifier = @"identifier";
+    
+    if ([tableView isEqual:self.tableView]) {
+            YSYKTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (cell == nil) {
+                cell = [[YSYKTableViewCell alloc]initWithFrame:cell.bounds];
+                cell.backgroundColor = HWColor(241, 241, 241);
+                ycell = cell;
+                cell.imgView.image = [UIImage imageNamed:@"cellView"];
+                cell.titleLabel.text = @"鲜生活*喵小春的鱼";
+                cell.addressLabel.text = @"大雁塔";
+                cell.typeLabel.text = @"中餐";
+                cell.parkIcon.image = [UIImage imageNamed:@"p"];
+                cell.wifiIcon.image = [UIImage imageNamed:@"WiFi"];
+                cell.priceLabel.text = @"￥39";
+                cell.priceLabel.textColor = HWColor(253, 151, 46);
+                cell.averageLabel.text = @"人均 :";
+                cell.averageLabel.textColor = HWColor(51, 51, 51);
+                cell.distanceLabel.text = @"2.3km";
+                cell.firstIcon.image = [UIImage imageNamed:@"金币"];
+                cell.firstLabel.text = @"10通币冲抵1元";
+                cell.secondIcon.image = [UIImage imageNamed:@"优惠"];
+                cell.secondLabel.text = @"每满10减1（买单立享）";
+            }
+    }
+    
+    if ([tableView isEqual:self.footerTable]) {
+        FooterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil) {
+            cell = [[FooterTableViewCell alloc]initWithFrame:cell.bounds];
+            ycell = cell;
+            }
+        switch (indexPath.row) {
+            case 0:
+                cell.titleLabel.text = @"易拉客";
+                cell.titleLabel.layer.backgroundColor = [HWColor(230, 25, 87)CGColor];
+                cell.titleLabel.layer.cornerRadius = 3;
+                
+                cell.subLabel.text = @"过客变粉丝";
+                cell.detailLabel.text = @"积分抵扣解放路口等几方面考虑的时间放对面的路上看见就反对浪费了多少分没了贷款";
+                
+                break;
+                
+            case 1:
+                cell.titleLabel.text = @"易推广";
+                cell.titleLabel.layer.backgroundColor = [HWColor(35, 178, 228)CGColor];
+                cell.titleLabel.layer.cornerRadius = 3;
+                
+                cell.subLabel.text = @"粉丝变顾客";
+                cell.detailLabel.text = @"积分抵扣解放路口等几方面考虑的时间放对面的路上看见就反对浪费了多少分没了贷款";
+                
+                break;
+                
+            default:
+                cell.titleLabel.text = @"易招聘";
+                cell.titleLabel.layer.backgroundColor = [HWColor(215, 18, 164)CGColor];
+                cell.titleLabel.layer.cornerRadius = 3;
+                
+                cell.subLabel.text = @"粉丝变顾客";
+                cell.detailLabel.text = @"积分抵扣解放路口等几方面考虑的时间放对面的路上看见就反对浪费了多少分没了贷款";
+                
+                break;
+        }
+    }
+    
+    return ycell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if ([tableView isEqual:self.tableView]) {
+        YSYKDetailViewController *vc = [YSYKDetailViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+
+@end
